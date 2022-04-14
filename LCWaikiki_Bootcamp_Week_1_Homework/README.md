@@ -103,3 +103,28 @@ Results for all endpoints are the same regardless. Every response contains `data
 ------------------
 > Other endpoints work as expected. Tested locally without any additional setup. 
 (.Net will download required packages when building the project for the first time)
+
+------------------
+
+>Folder Structure
+
+- **`Controllers`**
+> Contains Controllers that define endpoints and send MediatR Requests.
+- **`Core`**
+> Contains InMemoryDatabase context and dummy data generator
+- **`DBOperations`**
+> Contains **Commands** and **Queries** for **CQRS** Design Pattern
+- **`DTOs`**
+> Contains Data Transfer Objects
+- **`Mappers`**
+> Contains AutoMapper definitons
+- **`Middlewares`**
+> Contains Global Logger and Exception Handler Middleware
+- **`Models`**
+> Contains Models that used in defining objects
+- **`Repositories`**
+> Contains main functions that do the database queries and commands 
+- **`Services`**
+> Contains FluentValidation Service Register Class
+- **`Validators`**
+> Contains Validator classes for user input objects
