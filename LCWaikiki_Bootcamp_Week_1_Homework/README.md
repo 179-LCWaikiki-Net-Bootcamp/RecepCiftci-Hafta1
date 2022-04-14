@@ -4,12 +4,15 @@ Project is sample product endpoint Web API.
 
 >Available Endpoints are:
 
--  `[GET] api/products` --> Get All Available Products
-- `[GET] api/products/{id}` --> Get Product By ID
-- `[GET] api/products/{page}/{pagesize}` --> Get Products By Page Number and Size
-- `[POST] api/products` --> Add New Product - Returns
-- `[PUT] api/products` --> Update Available Product
-- `[DELETE] api/products/{id}` --> Delete Product By Its ID
+|HTTP|METHOD|RETURNS|DESCRIPTION|
+|---|---|---|
+|GET| GetProducts |`List<Product>`|Get All Products|
+|GET| GetProductById |`Product`|Get Product By ID|
+|GET| GetProductsByPage |`List<Product>`|Get Products By Page|
+|PUT| AddProduct |`Insertion info message`|Insert Product|
+|POST| UpdateProduct |`Update info message`|Update Product|
+|DELETE| DeleteProduct |`Delete info message`|Delete Product|
+
 
 ------------------
 
