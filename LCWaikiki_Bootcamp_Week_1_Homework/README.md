@@ -5,7 +5,7 @@ Project is sample product endpoint Web API.
 >Available Endpoints are:
 
 |HTTP|METHOD|RETURNS|DESCRIPTION|
-|---|---|---|
+|---|---|---|---|
 |GET| GetProducts |`List<Product>`|Get All Products|
 |GET| GetProductById |`Product`|Get Product By ID|
 |GET| GetProductsByPage |`List<Product>`|Get Products By Page|
