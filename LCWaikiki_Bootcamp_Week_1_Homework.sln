@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCWaikiki_Bootcamp_Week_1_Homework", "LCWaikiki_Bootcamp_Week_1_Homework\LCWaikiki_Bootcamp_Week_1_Homework.csproj", "{C126E04B-57D6-4CD1-AF68-B2130FAC8BDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCWaikiki_Bootcamp_Week_1_Homework", "LCWaikiki_Bootcamp_Week_1_Homework\LCWaikiki_Bootcamp_Week_1_Homework.csproj", "{C126E04B-57D6-4CD1-AF68-B2130FAC8BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCWaikiki_Bootcamp_Week_2_Homework", "LCWaikiki_Bootcamp_Week_2_Homework\LCWaikiki_Bootcamp_Week_2_Homework.csproj", "{7AEA55C8-3DB3-434D-BDCE-3C34052DE41D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C126E04B-57D6-4CD1-AF68-B2130FAC8BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C126E04B-57D6-4CD1-AF68-B2130FAC8BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C126E04B-57D6-4CD1-AF68-B2130FAC8BDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEA55C8-3DB3-434D-BDCE-3C34052DE41D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEA55C8-3DB3-434D-BDCE-3C34052DE41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEA55C8-3DB3-434D-BDCE-3C34052DE41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEA55C8-3DB3-434D-BDCE-3C34052DE41D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
