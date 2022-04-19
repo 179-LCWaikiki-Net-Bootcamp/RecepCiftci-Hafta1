@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using LCWaikiki_Bootcamp_Week_2_Homework.Models;
+﻿using LCWaikiki_Bootcamp_Week_2_Homework.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.Core
 {

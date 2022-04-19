@@ -2,13 +2,23 @@
 using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetById;
 using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository;
+using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.IngredientRepository;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Ingredients.IngredientGetById
 {
     public class IngredientGetByIdQueryHandler : GetByIdQueryHandler<IngredientDto>
     {
-        public IngredientGetByIdQueryHandler(IBaseRepository<IngredientDto> baseRepository, IMapper mapper) : base(baseRepository, mapper)
+        private readonly IIngredientRepository _repository;
+
+        public IngredientGetByIdQueryHandler(IMapper mapper, IIngredientRepository repository) : base(mapper)
         {
+            _repository = repository;
+        }
+
+        public async override Task<ResponseDto<IngredientDto>> Handle(GetByIdQuery<IngredientDto> request, CancellationToken cancellationToken)
+        {
+            _baseEntity = await _repository.GetById(request.Id);
+            return await base.Handle(request, cancellationToken);
         }
     }
 }

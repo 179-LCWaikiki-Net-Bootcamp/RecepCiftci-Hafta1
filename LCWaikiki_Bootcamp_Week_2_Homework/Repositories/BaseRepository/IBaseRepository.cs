@@ -7,7 +7,7 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository
     {
         Task<IReadOnlyList<T>> GetAll();
         Task<T> GetById(int id);
-        Task<IReadOnlyList<T>> GetBySearch(Expression<Func<T, bool>> predicate);
+        Task<IReadOnlyList<T>> GetBySearch(string keyword);
         Task<IReadOnlyList<T>> GetByPage(int page, int pageSize);
 
         Task Save(T entity);

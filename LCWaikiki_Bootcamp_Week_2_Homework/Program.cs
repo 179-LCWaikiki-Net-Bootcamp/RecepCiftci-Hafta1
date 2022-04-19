@@ -1,14 +1,11 @@
-using MediatR;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using LCWaikiki_Bootcamp_Week_2_Homework.Middlewares;
 using LCWaikiki_Bootcamp_Week_2_Homework.Core;
+using LCWaikiki_Bootcamp_Week_2_Homework.Middlewares;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository;
-using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.FoodRepository;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.IngredientRepository;
-using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetAll;
-using LCWaikiki_Bootcamp_Week_2_Homework.Models;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +25,7 @@ options =>
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IFoodRepository, FoodRepository>();
 builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
+
 
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 

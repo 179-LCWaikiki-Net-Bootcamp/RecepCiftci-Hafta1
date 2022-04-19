@@ -24,14 +24,14 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<IReadOnlyList<T>> GetBySearch(Expression<Func<T, bool>> predicate)
+        public async Task<IReadOnlyList<T>> GetBySearch(string keyword)
         {
-            return await _context.Set<T>().Where(predicate).ToListAsync();
+            return await _context.Set<T>().Where(x => x.Name.Contains(keyword)).ToListAsync();
         }
 
         public async Task<IReadOnlyList<T>> GetByPage(int page, int pageSize)
         {
-            return await _context.Set<T>().Skip((page-1) * pageSize).Take(pageSize).ToListAsync();
+            return await _context.Set<T>().Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
         public async Task Save(T entity)

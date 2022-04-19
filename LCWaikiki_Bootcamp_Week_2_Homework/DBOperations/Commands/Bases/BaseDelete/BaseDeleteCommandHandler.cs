@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
+﻿using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
 using LCWaikiki_Bootcamp_Week_2_Homework.Models;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository;
 using MediatR;

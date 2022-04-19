@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetAll;
+using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetById;
+using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetBySearch;
 using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
-using MediatR;
-using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetAll;
 using LCWaikiki_Bootcamp_Week_2_Homework.Models;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomControllerBase<T> : ControllerBase 
+    public class CustomControllerBase<T> : ControllerBase
         where T : BaseEntity
     {
         private readonly IMediator _mediator;
@@ -25,27 +27,20 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Controllers
             return CreateActionResult(response);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAll()
-        //{
-        //    var response = await _mediator.Send( )
-        //    //var response = await _mediator.Send(new ProductGetAllQuery());
-        //    return CreateActionResult(response);
-        //}
+        // TODO Return error if id isn't exist
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductById(int id)
+        {
+            var response = await _mediator.Send(new GetByIdQuery<T>() { Id = id });
+            return CreateActionResult(response);
+        }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetProductById(int id)
-        //{
-        //    var response = await _mediator.Send(new ProductGetByIdQuery() { Id = id });
-        //    return CreateActionResult(response);
-        //}
-
-        //[HttpGet("{page}/{pageSize}")]
-        //public async Task<IActionResult> GetProductsByPage(int page, int pageSize)
-        //{
-        //    var response = await _mediator.Send(new ProductGetByPageQuery() { Page = page, PageSize = pageSize });
-        //    return CreateActionResult(response);
-        //}
+        [HttpGet("search")]
+        public async Task<IActionResult> GetProductsByPage(string keyword)
+        {
+            var response = await _mediator.Send(new GetBySearchQuery<T>() { Keyword = keyword});
+            return CreateActionResult(response);
+        }
 
         //[HttpPost]
         //public async Task<IActionResult> AddProduct(ProductInsertCommand request)

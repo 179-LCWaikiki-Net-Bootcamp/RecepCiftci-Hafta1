@@ -6,21 +6,19 @@ using MediatR;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetById
 {
-    public class GetByIdQueryHandler<T> : IRequestHandler<GetByIdQuery<T>, ResponseDto<T>> where T : BaseEntity
+    public abstract class GetByIdQueryHandler<T> : IRequestHandler<GetByIdQuery<T>, ResponseDto<T>> where T : BaseEntity
     {
-        private readonly IBaseRepository<T> _baseRepository;
         private readonly IMapper _mapper;
+        protected BaseEntity _baseEntity { get; set; }
 
-        public GetByIdQueryHandler(IBaseRepository<T> baseRepository, IMapper mapper)
+        public GetByIdQueryHandler(IMapper mapper)
         {
-            _baseRepository = baseRepository;
             _mapper = mapper;
         }
 
-        public async Task<ResponseDto<T>> Handle(GetByIdQuery<T> request, CancellationToken cancellationToken)
+        public virtual async Task<ResponseDto<T>> Handle(GetByIdQuery<T> request, CancellationToken cancellationToken)
         {
-            var response = await _baseRepository.GetById(request.Id);
-            return ResponseDto<T>.Success(response, 200);
+            return ResponseDto<T>.Success(_mapper.Map<T>(_baseEntity), 200);
         }
     }
 }

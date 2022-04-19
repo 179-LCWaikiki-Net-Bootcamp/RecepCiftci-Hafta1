@@ -6,21 +6,19 @@ using MediatR;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetBySearch
 {
-    public class GetBySearchQueryHandler<T> : IRequestHandler<GetBySearchQuery<T>, ResponseDto<IReadOnlyList<T>>> where T : BaseEntity
+    public abstract class GetBySearchQueryHandler<T> : IRequestHandler<GetBySearchQuery<T>, ResponseDto<IReadOnlyList<T>>> where T : BaseEntity
     {
-        private readonly IBaseRepository<T> _baseRepository;
         private readonly IMapper _mapper;
+        protected IReadOnlyList<BaseEntity> _baseEntities { get; set; }
 
-        public GetBySearchQueryHandler(IBaseRepository<T> baseRepository, IMapper mapper)
+        public GetBySearchQueryHandler(IMapper mapper)
         {
-            _baseRepository = baseRepository;
             _mapper = mapper;
         }
 
-        public async Task<ResponseDto<IReadOnlyList<T>>> Handle(GetBySearchQuery<T> request, CancellationToken cancellationToken)
+        public virtual async Task<ResponseDto<IReadOnlyList<T>>> Handle(GetBySearchQuery<T> request, CancellationToken cancellationToken)
         {
-            var response = await _baseRepository.GetBySearch(x => x.Name.Contains(request.Keyword));
-            return ResponseDto<IReadOnlyList<T>>.Success(response, 200);
+            return ResponseDto<IReadOnlyList<T>>.Success(_mapper.Map<IReadOnlyList<T>>(_baseEntities), 200);
         }
     }
 }
