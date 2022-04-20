@@ -4,6 +4,7 @@ using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductDelete;
 using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductInsert;
 using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductUpdate;
 using LCWaikiki_Bootcamp_Week_1_Homework.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LCWaikiki_Bootcamp_Week_1_Homework.Repositories
 {
@@ -20,17 +21,17 @@ namespace LCWaikiki_Bootcamp_Week_1_Homework.Repositories
 
         public async Task<List<Product>> GetProducts()
         {
-            return _dbContext.Products.ToList();
+            return await _dbContext.Products.ToListAsync();
         }
 
         public async Task<Product> GetProductById(int id)
         {
-            return _dbContext.Products.First(p => p.Id == id);
+            return await _dbContext.Products.FirstAsync(p => p.Id == id);
         }
 
         public async Task<List<Product>> GetProductsByPage(int page, int pageSize)
         {
-            return _dbContext.Products.Skip(page-1 * pageSize).Take(pageSize).ToList();
+            return await _dbContext.Products.Skip(page - 1 * pageSize).Take(pageSize).ToListAsync();
         }
 
         public async Task SaveProduct(ProductInsertCommand command)

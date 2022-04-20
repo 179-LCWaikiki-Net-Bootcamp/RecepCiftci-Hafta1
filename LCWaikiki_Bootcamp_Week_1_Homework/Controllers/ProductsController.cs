@@ -1,11 +1,11 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductDelete;
+using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductInsert;
+using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductUpdate;
 using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Queries.GetAll;
 using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Queries.GetById;
 using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Queries.GetByPage;
-using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductInsert;
-using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductDelete;
-using LCWaikiki_Bootcamp_Week_1_Homework.DBOperations.Commands.ProductUpdate;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LCWaikiki_Bootcamp_Week_1_Homework.Controllers
 {
@@ -54,7 +54,7 @@ namespace LCWaikiki_Bootcamp_Week_1_Homework.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteProduct([FromQuery]ProductDeleteCommand request)
+        public async Task<IActionResult> DeleteProduct([FromQuery] ProductDeleteCommand request)
         {
             var response = await _mediator.Send(request);
             return CreateActionResult(response);

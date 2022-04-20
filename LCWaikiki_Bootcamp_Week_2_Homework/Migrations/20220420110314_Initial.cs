@@ -9,34 +9,34 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Foods",
+                name: "Food",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Foods", x => x.Id);
+                    table.PrimaryKey("PK_Food", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ingredients",
+                name: "Ingredient",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredients", x => x.Id);
+                    table.PrimaryKey("PK_Ingredient", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,15 +50,15 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
                 {
                     table.PrimaryKey("PK_FoodIngredient", x => new { x.FoodsId, x.IngredientsId });
                     table.ForeignKey(
-                        name: "FK_FoodIngredient_Foods_FoodsId",
+                        name: "FK_FoodIngredient_Food_FoodsId",
                         column: x => x.FoodsId,
-                        principalTable: "Foods",
+                        principalTable: "Food",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FoodIngredient_Ingredients_IngredientsId",
+                        name: "FK_FoodIngredient_Ingredient_IngredientsId",
                         column: x => x.IngredientsId,
-                        principalTable: "Ingredients",
+                        principalTable: "Ingredient",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -75,10 +75,10 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
                 name: "FoodIngredient");
 
             migrationBuilder.DropTable(
-                name: "Foods");
+                name: "Food");
 
             migrationBuilder.DropTable(
-                name: "Ingredients");
+                name: "Ingredient");
         }
     }
 }

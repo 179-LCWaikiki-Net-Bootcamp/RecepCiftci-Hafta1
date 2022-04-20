@@ -17,6 +17,7 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Middlewares
                     var exception = exceptionFeature.Error;
 
                     context.Response.StatusCode = 500;
+
                     await context.Response.WriteAsJsonAsync(ResponseDto<NoContent>.Fail(exception.Message));
                 });
             });

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20220418230446_Initial")]
+    [Migration("20220420110314_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,7 +62,7 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Foods");
+                    b.ToTable("Food");
                 });
 
             modelBuilder.Entity("LCWaikiki_Bootcamp_Week_2_Homework.Models.Ingredient", b =>
@@ -86,7 +86,7 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredient");
                 });
 
             modelBuilder.Entity("FoodIngredient", b =>

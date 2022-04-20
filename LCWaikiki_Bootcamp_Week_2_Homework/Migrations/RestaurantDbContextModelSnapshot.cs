@@ -60,7 +60,7 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Foods");
+                    b.ToTable("Food");
                 });
 
             modelBuilder.Entity("LCWaikiki_Bootcamp_Week_2_Homework.Models.Ingredient", b =>
@@ -84,7 +84,7 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredient");
                 });
 
             modelBuilder.Entity("FoodIngredient", b =>

@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
 using LCWaikiki_Bootcamp_Week_2_Homework.Models;
-using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository;
 using MediatR;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetById
 {
-    public abstract class GetByIdQueryHandler<T> : IRequestHandler<GetByIdQuery<T>, ResponseDto<T>> where T : BaseEntity
+    public abstract class GetByIdQueryHandler<T> : IRequestHandler<GetByIdQuery<T>, ResponseDto<T>> where T : class
     {
         private readonly IMapper _mapper;
         protected BaseEntity _baseEntity { get; set; }

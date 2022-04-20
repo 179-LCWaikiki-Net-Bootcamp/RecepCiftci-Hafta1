@@ -1,20 +1,19 @@
 ﻿using LCWaikiki_Bootcamp_Week_2_Homework.Core;
 using LCWaikiki_Bootcamp_Week_2_Homework.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-        private readonly RestaurantDbContext _context;
+        protected readonly RestaurantDbContext _context;
 
         public BaseRepository(RestaurantDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IReadOnlyList<T>> GetAll()
+        public virtual async Task<IReadOnlyList<T>> GetAll()
         {
             return await _context.Set<T>().ToListAsync();
         }
@@ -34,21 +33,24 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository
             return await _context.Set<T>().Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
-        public async Task Save(T entity)
+        public virtual async Task Save(T entity)
         {
             _context.Set<T>().Add(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(T entity)
+        public virtual async Task Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public virtual async Task Delete(int id)
         {
-            _context.Set<T>().Remove(_context.Set<T>().Where(x => x.Id == id).First());
+            var deleted = _context.Set<T>().Where(x => x.Id == id);
+            if (deleted.Count() == 0)
+                throw new ArgumentOutOfRangeException("404", $"Element with ID {id} isn't exist");
+            _context.Set<T>().Remove(deleted.First());
             await _context.SaveChangesAsync();
         }
     }

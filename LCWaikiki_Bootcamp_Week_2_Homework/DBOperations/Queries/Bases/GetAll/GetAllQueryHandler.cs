@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using MediatR;
 using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
 using LCWaikiki_Bootcamp_Week_2_Homework.Models;
+using MediatR;
 
 namespace LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Queries.Bases.GetAll
 {
     public abstract class GetAllQueryHandler<T> : IRequestHandler<GetAllQuery<T>, ResponseDto<IReadOnlyList<T>>>
-        where T : BaseEntity
+        where T : class
     {
         protected readonly IMapper _mapper;
         protected IReadOnlyList<BaseEntity> _baseEntities { get; set; }
