@@ -1,3 +1,3 @@
 ### Homework for LCWaikiki .Net Bootcamp
 
-Project Folders, Files and ReadMe inside the `LCWaikiki_Bootcamp_Week_1_Homework` folder
+Project Folders, Files and detailed ReadMe inside the respective week `LCWaikiki_Bootcamp_Week_{WEEK_NUMBER}_Homework` folder
