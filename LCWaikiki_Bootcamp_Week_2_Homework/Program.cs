@@ -3,6 +3,7 @@ using LCWaikiki_Bootcamp_Week_2_Homework.Middlewares;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.BaseRepository;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.FoodRepository;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.IngredientRepository;
+using LCWaikiki_Bootcamp_Week_2_Homework.Services;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -22,6 +23,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddFluentValidationServices();
 
 builder.Services.AddDbContext<RestaurantDbContext>(
 options =>

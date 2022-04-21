@@ -22,85 +22,85 @@ namespace LCWaikiki_Bootcamp_Week_2_Homework.Migrations
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("FoodIngredient", b =>
-                {
-                    b.Property<int>("FoodsId")
-                        .HasColumnType("int");
+            {
+                b.Property<int>("FoodsId")
+                    .HasColumnType("int");
 
-                    b.Property<int>("IngredientsId")
-                        .HasColumnType("int");
+                b.Property<int>("IngredientsId")
+                    .HasColumnType("int");
 
-                    b.HasKey("FoodsId", "IngredientsId");
+                b.HasKey("FoodsId", "IngredientsId");
 
-                    b.HasIndex("IngredientsId");
+                b.HasIndex("IngredientsId");
 
-                    b.ToTable("FoodIngredient");
-                });
+                b.ToTable("FoodIngredient");
+            });
 
             modelBuilder.Entity("LCWaikiki_Bootcamp_Week_2_Homework.Models.Food", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                b.Property<int>("CategoryId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                b.Property<decimal>("Price")
+                    .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Food");
-                });
+                b.ToTable("Food");
+            });
 
             modelBuilder.Entity("LCWaikiki_Bootcamp_Week_2_Homework.Models.Ingredient", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                b.Property<int>("CategoryId")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Description")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Ingredient");
-                });
+                b.ToTable("Ingredient");
+            });
 
             modelBuilder.Entity("FoodIngredient", b =>
-                {
-                    b.HasOne("LCWaikiki_Bootcamp_Week_2_Homework.Models.Food", null)
-                        .WithMany()
-                        .HasForeignKey("FoodsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("LCWaikiki_Bootcamp_Week_2_Homework.Models.Food", null)
+                    .WithMany()
+                    .HasForeignKey("FoodsId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.HasOne("LCWaikiki_Bootcamp_Week_2_Homework.Models.Ingredient", null)
-                        .WithMany()
-                        .HasForeignKey("IngredientsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                b.HasOne("LCWaikiki_Bootcamp_Week_2_Homework.Models.Ingredient", null)
+                    .WithMany()
+                    .HasForeignKey("IngredientsId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
+            });
 #pragma warning restore 612, 618
         }
     }

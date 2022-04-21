@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Commands.Bases.BaseDelete;
+﻿using LCWaikiki_Bootcamp_Week_2_Homework.DBOperations.Commands.Bases.BaseDelete;
 using LCWaikiki_Bootcamp_Week_2_Homework.DTOs;
 using LCWaikiki_Bootcamp_Week_2_Homework.Repositories.FoodRepository;
 using LCWaikiki_Bootcamp_Week_2_Homework.ViewModels;
