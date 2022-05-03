@@ -7,12 +7,12 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{cbccdf7c-bc9e-49bf-b3da-13e7b029fb35}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>LC_WAIKIKI_DATABASE</RootNamespace>
-    <AssemblyName>LC_WAIKIKI_DATABASE</AssemblyName>
+    <RootNamespace>LC_WAIKIKI_Bootcamp_Week_3__Homework_Database</RootNamespace>
+    <AssemblyName>LC_WAIKIKI_Bootcamp_Week_3__Homework_Database</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
