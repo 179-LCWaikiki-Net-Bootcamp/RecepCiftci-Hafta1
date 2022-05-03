@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCWaikiki_Bootcamp_Week_1_H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LCWaikiki_Bootcamp_Week_2_Homework", "LCWaikiki_Bootcamp_Week_2_Homework\LCWaikiki_Bootcamp_Week_2_Homework.csproj", "{7AEA55C8-3DB3-434D-BDCE-3C34052DE41D}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LC_WAIKIKI_Bootcamp_Week_3__Homework_Database", "LC_WAIKIKI_DATABASE\LC_WAIKIKI_Bootcamp_Week_3__Homework_Database.sqlproj", "{CBCCDF7C-BC9E-49BF-B3DA-13E7B029FB35}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LC_WAIKIKI_Bootcamp_Week_3__Homework_Database", "LC_WAIKIKI_Bootcamp_Week_3__Homework\LC_WAIKIKI_Bootcamp_Week_3__Homework_Database.sqlproj", "{CBCCDF7C-BC9E-49BF-B3DA-13E7B029FB35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
